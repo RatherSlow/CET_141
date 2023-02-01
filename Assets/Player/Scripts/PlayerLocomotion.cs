@@ -8,7 +8,7 @@ public class PlayerLocomotion : MonoBehaviour
     CharacterController characterController;
     Transform playerContainer, cameraContainer;
 
-    public float speed = 6.0f;
+    public float speed = 6.0f;    
     public float jumpSpeed = 10f;
     public float mouseSensitivity = 2f;
     public float gravity = 20.0f;
@@ -16,6 +16,7 @@ public class PlayerLocomotion : MonoBehaviour
     public float lookDownClamp = 60f;
 
     private Vector3 moveDirection = Vector3.zero;
+    private Vector3 sprint = Vector3.zero;
     float rotateX, rotateY;
     
     // Start is called before the first frame update
@@ -64,13 +65,21 @@ public class PlayerLocomotion : MonoBehaviour
             {
                 characterController.height = 0.65f;
                 characterController.center = new Vector3(0f, 0.5f, 0f);
-            }
-            else //if (Input.GetKeyUp(KeyCode.C))
+            }            
+            else //if (Input.GetKeyUp(KeyCodDe.C))
             {
                 characterController.height = 2f;
                 characterController.center = new Vector3(0f, 1f, 0f);
             }
-            //Todo Jumping/Crouching
+
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                speed = 11.0f;
+            }
+            else
+            {
+                speed = 6.0f;
+            }
         }
 
         moveDirection.y -= gravity * Time.deltaTime;
