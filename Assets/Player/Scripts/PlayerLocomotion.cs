@@ -45,7 +45,7 @@ public class PlayerLocomotion : MonoBehaviour
         else
         {
             playerContainer = gameObject.transform.Find("Container3P");
-            cameraContainer = playerContainer.transform.Find("Camera1PContainer");
+            cameraContainer = playerContainer.transform.Find("Camera3PContainer");
         }
     }
     void Locomotion()

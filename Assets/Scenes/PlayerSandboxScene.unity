@@ -845,7 +845,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57155a26032a1d4b9a91d2bad054060, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  perspective: 1
+  perspective: 0
 --- !u!114 &719778175
 MonoBehaviour:
   m_ObjectHideFlags: 0
