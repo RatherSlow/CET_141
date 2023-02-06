@@ -32,7 +32,8 @@ public class PlayerLocomotion : MonoBehaviour
     {
         Locomotion();
         RotateAndLook();
-        PerspectiveCheck();        
+        PerspectiveCheck();
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     void SetCurrentCamera()
