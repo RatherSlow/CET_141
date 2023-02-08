@@ -6,6 +6,7 @@ public class HitManager : MonoBehaviour
 {
     [SerializeField]
     float hitPoints = 25;
+    float rotateY = 90f;
 
     void Hit(float rawDamage)
     {
@@ -18,6 +19,7 @@ public class HitManager : MonoBehaviour
 
     void SelfTerminate()
     {
+        transform.Rotate(rotateY, 0f, 0f);
         Destroy(gameObject);
     }
 }

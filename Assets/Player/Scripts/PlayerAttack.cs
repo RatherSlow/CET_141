@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
     Transform cameraTransform;
+    [SerializeField]
+    Transform goodgunTransform;
     float range = 100f;
 
     [SerializeField]
@@ -18,11 +20,21 @@ public class PlayerAttack : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1"))
         {
-            cameraTransform = Camera.main.transform;
-            Ray ray = new Ray(cameraTransform.position, cameraTransform.forward);
-            Debug.DrawRay(cameraTransform.position, cameraTransform.forward * 5, Color.magenta, 1f);
+            SwitchPerspective switchPerspective = GetComponent<SwitchPerspective>();
+            Ray ray = new Ray();
+            if (switchPerspective.GetPerspective() == SwitchPerspective.Perspective.First)
+            {
+                cameraTransform = Camera.main.transform;
+                ray = new Ray(cameraTransform.position, cameraTransform.forward);
+                Debug.DrawRay(cameraTransform.position, cameraTransform.forward * 5, Color.magenta, 1f);
+            }
+            else
+            {
+                //goodgunTransform = gameObject.transform.Find("GoodGun3");
+                ray = new Ray(goodgunTransform.position, goodgunTransform.forward);
+                Debug.DrawRay(goodgunTransform.position, goodgunTransform.forward * 5, Color.green, 1f);
+            }         
             Debug.Log("FIRE 1");
-
             RaycastHit raycastHit;
             if (Physics.Raycast(ray, out raycastHit, range))
             {
