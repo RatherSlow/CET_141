@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6948385618327484918}
   - component: {fileID: 4252400398835843609}
+  - component: {fileID: 731367918299679790}
   m_Layer: 0
   m_Name: GoldCoin
   m_TagString: Untagged
@@ -31,7 +32,7 @@ Transform:
   m_Children:
   - {fileID: 2840590512744515387}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &4252400398835843609
 SphereCollider:
@@ -46,6 +47,30 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &731367918299679790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5302307488406084306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41d5979f385f12544975e51d39d1baeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemPrefab: {fileID: 0}
+  icon: {fileID: 0}
+  itemName: Gold Coin
+  description: 
+  spinspeed: 0.3
+  isSpinable: 1
+  weight: 0
+  quantity: 1
+  maxStackableQuantity: 1
+  isStorable: 0
+  isConsumable: 1
+  isPickupOnCollision: 1
 --- !u!1 &7154296431345547045
 GameObject:
   m_ObjectHideFlags: 0
