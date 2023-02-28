@@ -89,8 +89,8 @@ public class PlayerLocomotion : MonoBehaviour
 
     void RotateAndLook()
     {
-        rotateX = Input.GetAxis("Mouse X") * mouseSensitivity;
-        rotateY -= Input.GetAxis("Mouse Y") * mouseSensitivity;
+        rotateX = Input.GetAxis("Mouse X") * mouseSensitivity * (0.01f / Time.deltaTime);
+        rotateY -= Input.GetAxis("Mouse Y") * mouseSensitivity * (0.01f / Time.deltaTime);
 
         rotateY = Mathf.Clamp(rotateY, LookUpClamp, lookDownClamp);
 
