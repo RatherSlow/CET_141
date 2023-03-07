@@ -10,7 +10,7 @@ public class PlayerLocomotion : MonoBehaviour
 
     public float speed = 6.0f;    
     public float jumpSpeed = 10f;
-    public float mouseSensitivity = 2f;
+    public float mouseSensitivity = 2000f;
     public float gravity = 20.0f;
     public float LookUpClamp = -30f;
     public float lookDownClamp = 60f;
@@ -23,6 +23,9 @@ public class PlayerLocomotion : MonoBehaviour
     void Start()
     {
         Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Confined;
+        GameManager.ResetGame();
+
         characterController = GetComponent<CharacterController>();
         SetCurrentCamera();        
     }
@@ -30,10 +33,12 @@ public class PlayerLocomotion : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Locomotion();
-        RotateAndLook();
-        PerspectiveCheck();
-        Cursor.lockState = CursorLockMode.Confined;
+        if (!MenuController.IsGamePaused)
+        {
+            Locomotion();
+            RotateAndLook();
+            PerspectiveCheck();
+        }        
     }
 
     void SetCurrentCamera()
@@ -89,8 +94,8 @@ public class PlayerLocomotion : MonoBehaviour
 
     void RotateAndLook()
     {
-        rotateX = Input.GetAxis("Mouse X") * mouseSensitivity * (0.01f / Time.deltaTime);
-        rotateY -= Input.GetAxis("Mouse Y") * mouseSensitivity * (0.01f / Time.deltaTime);
+        rotateX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
+        rotateY -= Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
         rotateY = Mathf.Clamp(rotateY, LookUpClamp, lookDownClamp);
 

@@ -38,6 +38,9 @@ public class Item : MonoBehaviour
     [SerializeField]
     bool isPickupOnCollision = false;
 
+    [SerializeField]
+    int pointValue = 1;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -105,6 +108,7 @@ public class Item : MonoBehaviour
 
     void Use()
     {
+        Debug.Log("Using " + transform.name);
         if (isConsumable)
         {
             quantity--;
@@ -112,6 +116,7 @@ public class Item : MonoBehaviour
             {
                 Destroy(gameObject);
             }
+            GameManager.IncrementScore(pointValue);
         }
     }
 }
