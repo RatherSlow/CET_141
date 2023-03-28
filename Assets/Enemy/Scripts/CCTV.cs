@@ -5,7 +5,7 @@ using UnityEngine;
 public class CCTV : MonoBehaviour
 {
     [SerializeField]
-    float CameraAngle = -35f;
+    float CameraAngle = 35f;
     float rotateY = 0f;
     [SerializeField]
     float spinspeed = 0.3f;
@@ -23,7 +23,7 @@ public class CCTV : MonoBehaviour
     {
         if (isActive == true)
         {
-            if (rotateY > 50f || rotateY < -50f)
+            if (rotateY > 60f || rotateY < -60f)
             {
                 spinspeed = -1*spinspeed;
                 Spin();
